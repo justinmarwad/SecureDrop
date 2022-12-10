@@ -17,6 +17,7 @@
     - [2.1 How It Works](#21-how-it-works)
       - [2.1.1 User Registration](#211-user-registration)
       - [2.1.2 User Lookup](#212-user-lookup)
+      - [2.1.2 CA](#212-ca)
 - [Authors](#authors)
 - [License](#license)
 
@@ -127,6 +128,22 @@ be avoided by using incremental sequence numbers starting with a random seed on 
 #### [2.1.2 User Lookup](#212-user-lookup)
 
 1. Send a post request to this url ```http://localhost:8000/lookup``` with the json ```{"email": "<the_email>"}``` 
+
+#### [2.1.2 CA](#212-ca)
+
+Steps to generate CA and server certificate: 
+
+```bash
+sudo apt install easy-rsa -y
+/usr/share/easy-rsa/easyrsa init-pki
+/usr/share/easy-rsa/easyrsa build-ca nopass # ca name: ca.securedrop.local
+/usr/share/easy-rsa/easyrsa gen-req securedrop.local nopass
+/usr/share/easy-rsa/easyrsa import-req pki/reqs/securedrop.local.req securedropp.local
+/usr/share/easy-rsa/easyrsa sign-req server securedropp.local
+
+# Create final pem key with ca key and server crt
+cat pki/issued/securedrop.local.crt pki/private/securedrop.local.key > pki/issued/securedrop.local.pem
+```
 
 # Authors
 
