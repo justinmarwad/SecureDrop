@@ -1,4 +1,4 @@
-import socket, requests, json, ssl, json, random  
+import socket, requests, json, ssl, json, random   
 import os, string, multiprocessing, signal
 from colorama import Fore, Style
 import urllib3
