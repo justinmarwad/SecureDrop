@@ -1,4 +1,2 @@
-Flask
-pyopenssl
-requests
-colorama
+django
+django_rest_framework
