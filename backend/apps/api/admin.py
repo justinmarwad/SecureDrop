@@ -1,3 +1,8 @@
 from django.contrib import admin
+from .models import SecureDropUser
 
-# Register your models here.
+class SecureDropUserAdmin(admin.ModelAdmin):
+    pass
+
+admin.site.register(SecureDropUser, SecureDropUserAdmin)
+
