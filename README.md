@@ -17,7 +17,8 @@
     - [2.1 How It Works](#21-how-it-works)
       - [2.1.1 User Registration](#211-user-registration)
       - [2.1.2 User Lookup](#212-user-lookup)
-      - [2.1.2 CA](#212-ca)
+      - [2.1.3 User Login](#213-user-login)
+      - [2.1.3 CA](#213-ca)
 - [Authors](#authors)
 - [License](#license)
 
@@ -129,7 +130,11 @@ be avoided by using incremental sequence numbers starting with a random seed on 
 
 1. Send a post request to this url ```http://localhost:8000/lookup``` with the json ```{"email": "<the_email>"}``` 
 
-#### [2.1.2 CA](#212-ca)
+#### [2.1.3 User Login](#213-user-login)
+
+1. Send a post request to this url ```http://localhost:8000/login``` with the json ```{"email": "<the_email>", "passwd": "<the_password>"}```
+
+#### [2.1.3 CA](#213-ca)
 
 Steps to generate CA and server certificate: 
 
