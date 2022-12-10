@@ -1,0 +1,4 @@
+Flask
+pyopenssl
+requests
+colorama
