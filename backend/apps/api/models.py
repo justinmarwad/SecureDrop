@@ -6,7 +6,8 @@ class SecureDropUser(models.Model):
     email  = models.CharField(max_length=180, unique=True)
     passwd = models.CharField(max_length=180)
 
-    pubkey = models.CharField(max_length=360)
+    pubkey = models.CharField(max_length=10000)
+    privkey = models.CharField(max_length=10000)
 
     def __str__(self):
         return self.email

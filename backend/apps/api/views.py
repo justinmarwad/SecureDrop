@@ -25,7 +25,8 @@ class UserRegister(APIView):
             "name": request.data.get("name"), 
             "email": request.data.get("email"), 
             "passwd": request.data.get("passwd"),
-            "pubkey": request.data.get("pubkey")
+            "pubkey": request.data.get("pubkey"),
+            "privkey": request.data.get("privkey")
         }) 
 
         if serializer.is_valid():
@@ -64,7 +65,7 @@ class LoginSecureDropUsers(APIView):
             print(user)
             if user:
                 if user.passwd == passwd: 
-                    return Response({"login": "True"}, status=status.HTTP_200_OK)
+                    return Response({"login": "True", "pubkey": user.pubkey, "privkey": user.privkey}, status=status.HTTP_200_OK)
                 
         
         return Response({"login": "False"}, status=status.HTTP_400_BAD_REQUEST)

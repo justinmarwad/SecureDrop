@@ -4,7 +4,7 @@ from .models import SecureDropUser
 class SecureDropUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = SecureDropUser
-        fields = ["name", "email", "passwd", "pubkey"]
+        fields = ["name", "email", "passwd", "pubkey", "privkey"]
 
 class ListUserSerializer(serializers.ModelSerializer):
     class Meta:
